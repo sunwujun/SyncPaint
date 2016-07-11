@@ -1,0 +1,44 @@
+﻿<Page x:Name="load" x:Class="SyncPaint.DrawPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      mc:Ignorable="d" 
+      
+      ShowsNavigationUI="False"
+	  Title="DrawPage" Unloaded="Close">
+
+    <Grid Name="bggrid" Loaded="OnLoad">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition Height="13*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <ScrollViewer Grid.Row="0" Grid.Column="0" Grid.RowSpan="2"  x:Name="myScrollViewer" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto">
+            <Grid x:Name="canvasgrid" Width="{Binding ActualWidth, ElementName=inkcanvas}" Height="{Binding ActualHeight, ElementName=inkcanvas}" HorizontalAlignment="Left" VerticalAlignment="Top">
+                <Canvas  x:Name="g">
+                    <InkCanvas x:Name="inkcanvas"/>
+                    <Thumb x:Name="thumb1" BorderThickness="3" BorderBrush="Black" Opacity="0.2" Height="400" Width="200" DragDelta="DragDelta" DragStarted="DragStarted" DragCompleted="DragCompleted" SizeChanged="thumb1_SizeChanged" />
+                </Canvas>
+            </Grid>
+        </ScrollViewer>
+
+        <Grid Grid.Row="0">
+            <Image Name="imageMenu" Source="/SyncPaint;component/picture/menubackgroung.png"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button  Name="btnSave"  Click="btnSave_Click" Width="60" Height="60" Background="Transparent" BorderBrush="{x:Null}" Margin="5,0,20,0">
+                    <Image Source="/SyncPaint;component/picture/保存 (2).png" />
+                </Button>
+                <Button Name="btnReview" Click="btnReview_Click" Width="60" Height="60" Background="Transparent" BorderBrush="{x:Null}" Margin="5,0,20,0">
+                    <Image Source="/SyncPaint;component/picture/回放 (1).png"/>
+                </Button>
+
+                <Button Name="btnHidden" Click="btnHidden_Click" Width="60" Height="60" Background="Transparent" BorderBrush="{x:Null}" >
+                    <Image Name="imgeye" Source="/SyncPaint;component/picture/隐藏.png"></Image>
+                </Button>
+
+            </StackPanel>
+        </Grid>
+
+    </Grid>
+</Page>

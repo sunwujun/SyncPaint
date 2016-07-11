@@ -1,0 +1,19 @@
+﻿<Page x:Class="SyncPaint.ErcodePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:SyncPaint"
+      mc:Ignorable="d" 
+      Unloaded="Page_Unloaded"
+      Width="600" Height="500"
+      ShowsNavigationUI="False"
+      Title="扫码连接">
+
+    <Grid Background="White">
+        <Image  Stretch="Fill" Margin="0,0,0,219" Source="/SyncPaint;component/picture/bgpic.png" ></Image>
+        <Image Name="imageCode"   Width="246"  Source="/SyncPaint;component/picture/ercode.png" Margin="171,114,183,144" ></Image>
+        <Image  Margin="188,372,183,76" Source="/SyncPaint;component/picture/textercode.png" />
+        <Image Source="/SyncPaint;component/picture/teamname.png" Margin="525,471,0,0"></Image>
+    </Grid>
+</Page>

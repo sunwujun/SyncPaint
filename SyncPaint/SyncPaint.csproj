@@ -1,0 +1,228 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D08ED64D-47C8-4112-8AB9-22BBB28CE9F6}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SyncPaint</RootNamespace>
+    <AssemblyName>SyncPaint</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>syscPaint.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>SyncPaint.App</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>false</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="zxing">
+      <HintPath>zxing\zxing.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="CmdManager.cs" />
+    <Compile Include="command\CameraChangeEndCommand.cs" />
+    <Compile Include="command\CameraChangeOnCommand.cs" />
+    <Compile Include="command\CameraChangeStartCommand.cs" />
+    <Compile Include="command\CameraSysnCommand.cs" />
+    <Compile Include="command\CircleCorrectCommand.cs" />
+    <Compile Include="command\Command.cs" />
+    <Compile Include="command\CommandMap.cs" />
+    <Compile Include="command\CommandType.cs" />
+    <Compile Include="command\ConvertData.cs" />
+    <Compile Include="command\DeviceSysnCommand.cs" />
+    <Compile Include="command\EllipseCorrectCommand.cs" />
+    <Compile Include="command\LineCorrectCommand.cs" />
+    <Compile Include="command\NullCommand.cs" />
+    <Compile Include="command\PaintChangeCommand.cs" />
+    <Compile Include="command\PathMoveEndCommand.cs" />
+    <Compile Include="command\PathMoveOnCommand.cs" />
+    <Compile Include="command\PathMoveStartCommand.cs" />
+    <Compile Include="command\RectangleCorrectCommand.cs" />
+    <Compile Include="command\RedoCommand.cs" />
+    <Compile Include="command\ShapeCorrectCommand.cs" />
+    <Compile Include="command\ShapeType.cs" />
+    <Compile Include="command\SysnEndCommand.cs" />
+    <Compile Include="command\SysnStartCommand.cs" />
+    <Compile Include="command\TriangleCorrectCommand.cs" />
+    <Compile Include="command\UndoCommand.cs" />
+    <Compile Include="Log.cs" />
+    <Compile Include="page\WaitingPage.xaml.cs">
+      <DependentUpon>WaitingPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="stroke\CircleStroke.cs" />
+    <Compile Include="stroke\EllipseStroke.cs" />
+    <Compile Include="stroke\LineStroke.cs" />
+    <Compile Include="stroke\RectangleStroke.cs" />
+    <Compile Include="stroke\TriangleStroke.cs" />
+    <Compile Include="CommandStack.cs" />
+    <Page Include="page\AlbumPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="page\DrawPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="page\ErcodePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="page\AlbumPage.xaml.cs">
+      <DependentUpon>AlbumPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="page\DrawPage.xaml.cs">
+      <DependentUpon>DrawPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="page\ErcodePage.xaml.cs">
+      <DependentUpon>ErcodePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="page\WaitingPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\app.manifest" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="picture\new.png" />
+    <Resource Include="picture\scan.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="picture\bgpic.png" />
+    <Resource Include="picture\ercode.png" />
+    <Resource Include="picture\textercode.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="picture\left.png" />
+    <Resource Include="picture\right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="save\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="syscPaint.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="picture\teamname.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="picture\teamnae1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="picture\menubackgroung.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="picture\保存 %282%29.png" />
+    <Resource Include="picture\回放 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="picture\隐藏.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="picture\load.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="picture\眼睛.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
